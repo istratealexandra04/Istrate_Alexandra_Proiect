@@ -1,0 +1,36 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Cartiere.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista cartierelor</h1>
+
+<p>
+    <a asp-page="Create">Introduceti un cartier nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cartier[0].NumeCartier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cartier) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeCartier)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Stergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

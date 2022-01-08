@@ -1,0 +1,24 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Cartiere.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalii</h1>
+
+<div class="detalii">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cartier.NumeCartier)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cartier.NumeCartier)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Cartier.ID">Editare</a> |
+    <a asp-page="/Cartiere/Index">Inapoi la lista cartierelor</a>
+</div>

@@ -1,0 +1,34 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Cartiere.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Introducere</h1>
+
+<h4>Cartier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cartier.NumeCartier" class="control-label"></label>
+                <input asp-for="Cartier.NumeCartier" class="form-control" />
+                <span asp-validation-for="Cartier.NumeCartier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salveaza" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Cartiere/Index">Inapoi la lista cartierelor</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

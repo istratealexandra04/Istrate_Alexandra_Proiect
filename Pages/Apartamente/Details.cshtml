@@ -1,0 +1,49 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Apartamente.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalii</h1>
+
+<div class="detalii">
+    <h4>Apartament</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartament.ApId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartament.ApId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartament.Adresa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartament.Adresa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartament.Pret)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartament.Pret)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartament.Descriere)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartament.Descriere)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartament.DataPublicare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartament.DataPublicare)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Apartament.ID">Editare</a> |
+    <a asp-page="/Apartamente/Index">Inapoi la lista apartamentelor</a>
+</div>

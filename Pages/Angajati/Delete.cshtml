@@ -1,0 +1,26 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Angajati.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Sunteti sigur ca doriti sa stergeti acest angajat?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Angajat.NumePrenumeAngajat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Angajat.NumePrenumeAngajat)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Angajat.ID" />
+        <input type="submit" value="Stergere" class="btn btn-danger" /> |
+        <a asp-page="/Angajati/Index">Inapoi la lista angajatilor</a>
+    </form>
+</div>

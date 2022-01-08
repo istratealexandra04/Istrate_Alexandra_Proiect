@@ -1,0 +1,25 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Cartiere.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Sunteti sigur ca doriti sa stergeti acest cartier?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cartier.NumeCartier)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cartier.NumeCartier)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Cartier.ID" />
+        <input type="submit" value="Stergere" class="btn btn-danger" /> |
+        <a asp-page="/Cartiere/Index">Inapoi la lista cartierelor</a>
+    </form>
+</div>

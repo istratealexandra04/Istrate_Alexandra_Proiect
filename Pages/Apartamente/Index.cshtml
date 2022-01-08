@@ -1,0 +1,83 @@
+﻿@page "/"
+@model Istrate_Alexandra_Proiect.Pages.Apartamente.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista apartamentelor</h1>
+
+<p>
+    <a asp-page="Create">Introduceti un apartament nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].ApId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].Adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].Descriere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].DataPublicare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].Angajat.NumePrenumeAngajat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartament[0].CartiereApartament)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ApartamentD.Apartamente)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.ApartamentID)
+            {
+                selectedRow = "table-success";
+            }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.ApId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPublicare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Angajat.NumePrenumeAngajat)
+            </td>
+            <td>
+                @{
+                    foreach (var cartier in item.CartiereApartament)
+                    {
+                        @cartier.Cartier.NumeCartier <br />
+                    }
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Stergere</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

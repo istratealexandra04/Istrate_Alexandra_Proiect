@@ -1,0 +1,84 @@
+﻿@page
+@model Istrate_Alexandra_Proiect.Pages.Apartamente.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Introducere</h1>
+
+<h4>Apartament</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Apartament.ApId" class="control-label"></label>
+                <input asp-for="Apartament.ApId" class="form-control" />
+                <span asp-validation-for="Apartament.ApId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartament.Adresa" class="control-label"></label>
+                <input asp-for="Apartament.Adresa" class="form-control" />
+                <span asp-validation-for="Apartament.Adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartament.Pret" class="control-label"></label>
+                <input asp-for="Apartament.Pret" class="form-control" />
+                <span asp-validation-for="Apartament.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartament.Descriere" class="control-label"></label>
+                <input asp-for="Apartament.Descriere" class="form-control" />
+                <span asp-validation-for="Apartament.Descriere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartament.DataPublicare" class="control-label"></label>
+                <input asp-for="Apartament.DataPublicare" class="form-control" />
+                <span asp-validation-for="Apartament.DataPublicare" class="textdanger"></span>
+            </div>
+            <label asp-for="Apartament.AngajatID" class="control-label">Angajat</label>
+            <select asp-for="Apartament.AngajatID" class="form-control" asp-items="ViewBag.AngajatID">
+            </select>
+            <span asp-validation-for="Apartament.AngajatID" class="text-danger"></span>
+            <label style="margin-top: 10px;">Cartier</label>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var car in Model.AssignedCartierDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="radio"
+                                               name="selectedCartiere"
+                                               value="@car.CartierID"
+                                               @(Html.Raw(car.Assigned ? "checked=\"checked\"" : "")) />
+                                         @car.Nume
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salveaza" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Apartamente/Index">Inapoi la lista apartamentelor</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
